@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="AppMasterDetail.Views.ContextListView">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Welcome to Xamarin.Forms!"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+
+            <ListView x:Name="listView" ItemSelected="listView_ItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.ContextActions>
+                                <MenuItem Clicked="onMore" CommandParameter="{Binding .}" Text="More"/>
+                                <MenuItem Clicked="onDelete" CommandParameter="{Binding .}" Text="Delete"/>
+                            </ViewCell.ContextActions>
+                            <StackLayout HorizontalOptions="StartAndExpand" Orientation="Horizontal">
+                                <StackLayout Padding="5, 0, 0, 0" VerticalOptions="StartAndExpand" Orientation="Vertical">
+                                    <Label Text="{Binding .}"/>
+                                    <Label Text="hint: trigger a context action" VerticalTextAlignment="Center" FontSize="Small" />
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

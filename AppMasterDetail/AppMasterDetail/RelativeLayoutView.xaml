@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="AppMasterDetail.RelativeLayoutView">
+    <ContentPage.Content>
+        <RelativeLayout BackgroundColor="Red">
+            <BoxView x:Name="YelloBox" 
+                     BackgroundColor="Yellow"
+                     HeightRequest="100"
+                     WidthRequest="100" />
+            <BoxView x:Name="PupleBox"
+                     Color="Purple" 
+                RelativeLayout.YConstraint="{
+                ConstraintExpression Type=RelativeToView,
+                ElementName=YelloBox,
+                Property=Y,
+                Constant=110
+                }"
+                     
+                RelativeLayout.XConstraint="{
+                ConstraintExpression Type=RelativeToView,
+                ElementName=YelloBox,
+                Property=X,
+                Constant=10
+                }"
+                     
+                RelativeLayout.HeightConstraint="{
+                ConstraintExpression Type=RelativeToView,
+                ElementName=YelloBox,
+                Property=Height,
+                Factor=0.6
+                }"
+                     
+                RelativeLayout.WidthConstraint="{
+                ConstraintExpression Type=RelativeToView,
+                ElementName=YelloBox,
+                Property=Width,
+                Factor=0.6
+                }"
+                     />
+
+        </RelativeLayout>
+    </ContentPage.Content>
+</ContentPage>
